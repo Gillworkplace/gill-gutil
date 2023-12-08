@@ -13,7 +13,7 @@ public class LoggerFactory {
 
     private static final LogConfig DEFAULT_LOG_CONFIG = new LogConfig();
 
-    public static <T> ILogger getLogger(Class<T> cls) {
+    public static ILogger getLogger(Class<?> cls) {
         Logger logger = org.slf4j.LoggerFactory.getLogger(cls);
         if (logger instanceof NOPLogger) {
             return new SoutLogger(cls, DEFAULT_LOG_CONFIG);
